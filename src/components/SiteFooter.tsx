@@ -18,7 +18,13 @@ export default function SiteFooter() {
           <Link to="/auth" className="hover:text-ivory">
             Sign in
           </Link>
-          <a href="mailto:support@artiq.app" className="hover:text-ivory">
+          <Link to="/privacy" className="hover:text-ivory">
+            Privacy
+          </Link>
+          <Link to="/terms" className="hover:text-ivory">
+            Terms
+          </Link>
+          <a href="mailto:artiqcali@gmail.com" className="hover:text-ivory">
             Support
           </a>
         </nav>

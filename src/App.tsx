@@ -6,6 +6,8 @@ import HowItWorks from "@/pages/HowItWorks";
 import Download from "@/pages/Download";
 import Auth from "@/pages/Auth";
 import Account from "@/pages/Account";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
             <Route path="download" element={<Download />} />
             <Route path="auth" element={<Auth />} />
             <Route path="account" element={<Account />} />
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="terms" element={<Terms />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
