@@ -23,4 +23,8 @@ export const supabase: SupabaseClient = isSupabaseConfigured
           error: new Error("Supabase is not configured"),
         }),
       }),
+      rpc: async () => ({
+        data: null,
+        error: new Error("Supabase is not configured"),
+      }),
     } as unknown as SupabaseClient);

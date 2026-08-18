@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import ArtBackground from "@/components/ArtBackground";
 import FeedScrollPreview from "@/components/FeedScrollPreview";
 import { PLATFORM_FEE_PERCENT } from "@/lib/fees";
+import { formatWaitlistCount, useWaitlistCount } from "@/lib/waitlistCount";
 
 export default function Home() {
+  const { count } = useWaitlistCount();
+
   return (
     <>
       {/* Hero — brand + one line + CTA over GTA-style art wall */}
@@ -178,6 +181,14 @@ export default function Home() {
             <p className="mt-2 text-ivory/55">
               Join the waitlist as an artist, buyer, or viewer — we’ll notify you.
             </p>
+            {count !== null && (
+              <p className="mt-3 text-sm text-ivory/60">
+                <span className="font-display text-base font-semibold text-gold">
+                  {formatWaitlistCount(count)}
+                </span>{" "}
+                {count === 1 ? "person has" : "people have"} joined so far.
+              </p>
+            )}
           </div>
           <div className="flex flex-wrap gap-3">
             <Link

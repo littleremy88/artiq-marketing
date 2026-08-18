@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CaptchaWidget, useCaptcha } from "@/components/Captcha";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
+import { formatWaitlistCount, useWaitlistCount } from "@/lib/waitlistCount";
 
 const ROLES = [
   { id: "artist", label: "Artist" },
@@ -20,6 +21,7 @@ function phoneDigitCount(value: string) {
 
 export default function Waitlist() {
   const { captchaRef, getCaptchaToken, resetCaptcha, captchaError } = useCaptcha();
+  const { count, bumpCount } = useWaitlistCount();
   const [name, setName] = useState("");
   const [role, setRole] = useState<Role>("artist");
   const [email, setEmail] = useState("");
@@ -82,6 +84,7 @@ export default function Waitlist() {
       }
 
       setJoined(true);
+      bumpCount();
       setMessage({
         type: "success",
         text: "You’re on the list. We’ll email you at launch — and text you if you left a number.",
@@ -112,6 +115,15 @@ export default function Waitlist() {
         <p className="mt-2 text-center text-sm text-ivory/55">
           Artists, buyers, and viewers — we’ll let you know when Artiq launches.
         </p>
+
+        {count !== null && (
+          <p className="mt-4 text-center text-sm text-ivory/60">
+            <span className="font-display text-base font-semibold text-gold">
+              {formatWaitlistCount(count)}
+            </span>{" "}
+            {count === 1 ? "person has" : "people have"} joined so far.
+          </p>
+        )}
 
         {joined ? (
           <div className="mt-10 rounded-xl border border-ivory/15 bg-charcoal-lift px-5 py-6 text-center">
