@@ -1,52 +1,25 @@
 import { motion } from "framer-motion";
+import starryNight from "@/assets/classical/01-starry-night.jpg";
+import greatWave from "@/assets/classical/02-great-wave.jpg";
+import impression from "@/assets/classical/03-impression.jpg";
+import wanderer from "@/assets/classical/04-wanderer.jpg";
+import picasso from "@/assets/classical/05-picasso.jpg";
+import scroll from "@/assets/classical/06-scroll.jpg";
+import oxbow from "@/assets/classical/07-oxbow.jpg";
+import storm from "@/assets/classical/08-storm.jpg";
+import winter from "@/assets/classical/09-winter.jpg";
 
-/** Famous classical works (Wikimedia) — same collage as the Artiq loading screen */
+/** Classical wall — same masterpiece set as the Artiq app splash */
 export const classicalArtworks = [
-  {
-    id: 1,
-    name: "Mona Lisa",
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
-  },
-  {
-    id: 2,
-    name: "Starry Night",
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
-  },
-  {
-    id: 3,
-    name: "The Great Wave",
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/1280px-Tsunami_by_hokusai_19th_century.jpg",
-  },
-  {
-    id: 4,
-    name: "Girl with a Pearl Earring",
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg",
-  },
-  {
-    id: 5,
-    name: "The Birth of Venus",
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1280px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
-  },
-  {
-    id: 6,
-    name: "The Persistence of Memory",
-    url: "https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg",
-  },
-  {
-    id: 7,
-    name: "The Creation of Adam",
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg/1280px-Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg",
-  },
-  {
-    id: 8,
-    name: "The Scream",
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/800px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg",
-  },
-  {
-    id: 9,
-    name: "Water Lilies",
-    url: "https://upload.wikimedia.org/wikipedia/commons/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg",
-  },
+  { id: 1, name: "Starry Night", url: starryNight },
+  { id: 2, name: "The Great Wave", url: greatWave },
+  { id: 3, name: "Impression seascape", url: impression },
+  { id: 4, name: "Wanderer", url: wanderer },
+  { id: 5, name: "Cubist portrait", url: picasso },
+  { id: 6, name: "Dead Sea Scrolls", url: scroll },
+  { id: 7, name: "The Oxbow", url: oxbow },
+  { id: 8, name: "Storm sky", url: storm },
+  { id: 9, name: "Winter landscape", url: winter },
 ];
 
 const kenBurns = [
@@ -78,7 +51,7 @@ function ArtworkTile({
       <motion.img
         src={artwork.url}
         alt=""
-        className="h-full w-full object-cover"
+        className="h-full w-full scale-110 object-cover"
         animate={direction}
         transition={{
           duration: 22,
@@ -97,8 +70,8 @@ interface ArtBackgroundProps {
   opacity?: number;
 }
 
-/** GTA-style classical art wall used on the Artiq loading screen */
-export default function ArtBackground({ opacity = 55 }: ArtBackgroundProps) {
+/** GTA-style classical art wall — every cell filled; scrim keeps copy readable */
+export default function ArtBackground({ opacity = 70 }: ArtBackgroundProps) {
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden>
       <div
@@ -115,19 +88,20 @@ export default function ArtBackground({ opacity = 55 }: ArtBackgroundProps) {
         ))}
       </div>
 
+      {/* Directional scrim: heavier on the copy side, lighter so art still reads in every cell */}
       <div
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse at center, transparent 0%, rgba(28, 28, 26, 0.55) 45%, rgba(28, 28, 26, 0.92) 100%),
-            linear-gradient(180deg, rgba(28, 28, 26, 0.35) 0%, rgba(28, 28, 26, 0.55) 45%, rgba(28, 28, 26, 0.92) 100%)
+            linear-gradient(90deg, rgba(28, 28, 26, 0.82) 0%, rgba(28, 28, 26, 0.45) 38%, rgba(28, 28, 26, 0.28) 100%),
+            linear-gradient(180deg, rgba(28, 28, 26, 0.4) 0%, rgba(28, 28, 26, 0.25) 42%, rgba(28, 28, 26, 0.55) 100%)
           `,
         }}
       />
 
       <div
         className="pointer-events-none absolute inset-0"
-        style={{ boxShadow: "inset 0 0 180px 80px rgba(0, 0, 0, 0.75)" }}
+        style={{ boxShadow: "inset 0 0 140px 50px rgba(0, 0, 0, 0.45)" }}
       />
     </div>
   );

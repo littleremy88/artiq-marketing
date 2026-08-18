@@ -15,8 +15,8 @@ export default function SiteFooter() {
           <Link to="/download" className="hover:text-ivory">
             Download
           </Link>
-          <Link to="/auth" className="hover:text-ivory">
-            Sign in
+          <Link to="/waitlist" className="hover:text-ivory">
+            Join waitlist
           </Link>
           <Link to="/privacy" className="hover:text-ivory">
             Privacy

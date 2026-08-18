@@ -12,8 +12,10 @@ export default {
         "charcoal-lift": "#2A2A27",
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', "Georgia", "serif"],
-        sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
+        // Bodoni Moda — Vogue-style Didone used for the Artiq wordmark
+        brand: ['"Bodoni Moda"', "Didot", "Georgia", "serif"],
+        display: ['"Bodoni Moda"', "Didot", "Georgia", "serif"],
+        sans: ['"Bodoni Moda"', "Didot", "Georgia", "serif"],
       },
     },
   },

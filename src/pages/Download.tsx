@@ -56,9 +56,9 @@ export default function Download() {
             </div>
 
             <p className="mt-10 text-sm text-ivory/45">
-              Already have an account?{" "}
-              <Link to="/auth" className="text-gold hover:text-gold-soft">
-                Sign in here
+              Waiting for launch?{" "}
+              <Link to="/waitlist" className="text-gold hover:text-gold-soft">
+                Join the waitlist
               </Link>
             </p>
           </motion.div>

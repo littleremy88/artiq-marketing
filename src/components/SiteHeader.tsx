@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import logo from "@/assets/artiq-logo.png";
+import logo from "@/assets/artiq-mark.png";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `text-sm tracking-wide transition-colors ${
@@ -9,14 +8,17 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   }`;
 
 export default function SiteHeader() {
-  const { user } = useAuth();
   const [open, setOpen] = useState(false);
 
   return (
     <header className="absolute inset-x-0 top-0 z-40">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 md:px-8">
         <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <img src={logo} alt="" className="h-8 w-8 object-contain" />
+          <img
+            src={logo}
+            alt="Artiq"
+            className="h-9 w-9 rounded-[22%] object-cover shadow-sm ring-1 ring-ivory/15"
+          />
           <span className="font-display text-2xl font-semibold tracking-wide text-ivory">
             Artiq
           </span>
@@ -29,18 +31,12 @@ export default function SiteHeader() {
           <NavLink to="/download" className={navLinkClass}>
             Download
           </NavLink>
-          {user ? (
-            <NavLink to="/account" className={navLinkClass}>
-              Account
-            </NavLink>
-          ) : (
-            <NavLink
-              to="/auth"
-              className="rounded-xl bg-ivory px-4 py-2 text-sm font-semibold text-charcoal transition hover:bg-gold-soft"
-            >
-              Sign in
-            </NavLink>
-          )}
+          <NavLink
+            to="/waitlist"
+            className="rounded-xl bg-ivory px-4 py-2 text-sm font-semibold text-charcoal transition hover:bg-gold-soft"
+          >
+            Join waitlist
+          </NavLink>
         </nav>
 
         <button
@@ -71,12 +67,8 @@ export default function SiteHeader() {
             <NavLink to="/download" className={navLinkClass} onClick={() => setOpen(false)}>
               Download
             </NavLink>
-            <NavLink
-              to={user ? "/account" : "/auth"}
-              className={navLinkClass}
-              onClick={() => setOpen(false)}
-            >
-              {user ? "Account" : "Sign in"}
+            <NavLink to="/waitlist" className={navLinkClass} onClick={() => setOpen(false)}>
+              Join waitlist
             </NavLink>
           </nav>
         </div>

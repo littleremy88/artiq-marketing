@@ -9,7 +9,7 @@ export default function Home() {
     <>
       {/* Hero — brand + one line + CTA over GTA-style art wall */}
       <section className="relative min-h-[100svh] overflow-hidden bg-charcoal">
-        <ArtBackground opacity={60} />
+        <ArtBackground opacity={72} />
 
         <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 md:justify-center md:px-8 md:pb-24 md:pt-32">
           <motion.div
@@ -30,10 +30,10 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                to="/download"
+                to="/waitlist"
                 className="rounded-xl bg-ivory px-6 py-3.5 text-sm font-semibold text-charcoal transition hover:bg-gold-soft"
               >
-                Get the app
+                Join waitlist
               </Link>
               <Link
                 to="/how-it-works"
@@ -173,18 +173,18 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-5 py-16 md:flex-row md:items-center md:px-8 md:py-20">
           <div>
             <h2 className="font-display text-2xl font-semibold text-ivory md:text-3xl">
-              Ready to explore?
+              Be first when Artiq launches
             </h2>
             <p className="mt-2 text-ivory/55">
-              Create an account or download the app to start discovering.
+              Join the waitlist as an artist, buyer, or viewer — we’ll notify you.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
-              to="/auth"
+              to="/waitlist"
               className="rounded-xl bg-gold px-6 py-3.5 text-sm font-semibold text-charcoal transition hover:bg-gold-soft"
             >
-              Sign in
+              Join waitlist
             </Link>
             <Link
               to="/download"

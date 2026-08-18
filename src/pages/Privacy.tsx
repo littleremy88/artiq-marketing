@@ -14,6 +14,12 @@ const sections: { title: string; body: React.ReactNode }[] = [
     body: (
       <>
         <p>
+          <strong className="text-ivory">Waitlist:</strong> If you join the
+          launch waitlist, we collect your name, email, role (artist, buyer, or
+          viewer), and an optional phone number so we can notify you when the
+          app is ready.
+        </p>
+        <p>
           <strong className="text-ivory">Account Information:</strong> When you
           create an account, we collect your email address, display name, and
           optional profile details like your bio and location.
@@ -176,7 +182,7 @@ export default function Privacy() {
         <h1 className="font-display text-4xl font-semibold tracking-wide text-ivory md:text-5xl">
           Privacy Policy
         </h1>
-        <p className="mt-3 text-sm text-ivory/45">Last updated: December 2024</p>
+        <p className="mt-3 text-sm text-ivory/45">Last updated: August 2026</p>
 
         <div className="mt-12 space-y-10">
           {sections.map((section) => (

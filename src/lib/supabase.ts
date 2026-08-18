@@ -9,33 +9,18 @@ export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseKey);
 
 if (!isSupabaseConfigured) {
   console.warn(
-    "Missing VITE_SUPABASE_URL or VITE_SUPABASE_PUBLISHABLE_KEY — auth will not work until env is set."
+    "Missing VITE_SUPABASE_URL or VITE_SUPABASE_PUBLISHABLE_KEY — waitlist signups will not work until env is set."
   );
 }
 
 /** Real client when configured; otherwise a no-op stub so the marketing site still renders. */
 export const supabase: SupabaseClient = isSupabaseConfigured
-  ? createClient(supabaseUrl!, supabaseKey!, {
-      auth: {
-        storage: localStorage,
-        persistSession: true,
-        autoRefreshToken: true,
-      },
-    })
+  ? createClient(supabaseUrl!, supabaseKey!)
   : ({
-      auth: {
-        onAuthStateChange: () => ({
-          data: { subscription: { unsubscribe: () => undefined } },
-        }),
-        getSession: async () => ({ data: { session: null }, error: null }),
-        signUp: async () => ({
-          data: { user: null, session: null },
+      from: () => ({
+        insert: async () => ({
+          data: null,
           error: new Error("Supabase is not configured"),
         }),
-        signInWithPassword: async () => ({
-          data: { user: null, session: null },
-          error: new Error("Supabase is not configured"),
-        }),
-        signOut: async () => ({ error: null }),
-      },
+      }),
     } as unknown as SupabaseClient);
