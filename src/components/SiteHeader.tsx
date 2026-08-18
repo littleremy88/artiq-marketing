@@ -1,6 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import logo from "@/assets/artiq-mark.png";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `text-sm tracking-wide transition-colors ${
@@ -15,8 +14,10 @@ export default function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 md:px-8">
         <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <img
-            src={logo}
-            alt="Artiq"
+            src="/icon-192.png"
+            alt=""
+            width={36}
+            height={36}
             className="h-9 w-9 rounded-[22%] object-cover shadow-sm ring-1 ring-ivory/15"
           />
           <span className="font-display text-2xl font-semibold tracking-wide text-ivory">
