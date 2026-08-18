@@ -30,7 +30,7 @@ export default function SiteHeader() {
             How it works
           </NavLink>
           <NavLink to="/download" className={navLinkClass}>
-            Download
+            Coming soon
           </NavLink>
           <NavLink
             to="/waitlist"
@@ -66,7 +66,7 @@ export default function SiteHeader() {
               How it works
             </NavLink>
             <NavLink to="/download" className={navLinkClass} onClick={() => setOpen(false)}>
-              Download
+              Coming soon
             </NavLink>
             <NavLink to="/waitlist" className={navLinkClass} onClick={() => setOpen(false)}>
               Join waitlist

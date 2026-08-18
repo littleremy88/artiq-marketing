@@ -95,10 +95,10 @@ export default function Home() {
               how to use, so talent can find an audience without waiting for a gatekeeper.
             </p>
             <Link
-              to="/download"
+              to="/waitlist"
               className="mt-8 inline-flex rounded-xl bg-ivory px-6 py-3.5 text-sm font-semibold text-charcoal transition hover:bg-gold-soft"
             >
-              Upload in the app
+              Join the waitlist as an artist
             </Link>
           </motion.div>
         </div>
