@@ -89,7 +89,7 @@ export default function Home() {
             className="max-w-2xl"
           >
             <h2 className="font-display text-3xl font-semibold tracking-wide text-ivory md:text-4xl">
-              Built so young artists get seen.
+              Built so overlooked artists get seen.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-ivory/60 md:text-lg">
               Emerging artists often struggle to get their work in front of people —
